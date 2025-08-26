@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SprintMatrix - Agile Project Management Made Simple</title>
+
+  <!--
+    Configure Tailwind to use 'class' strategy for dark mode,
+    meaning dark mode styles are applied when 'dark' class is on <html>
+  -->
+  <script>
+    // Configure Tailwind CSS dark mode
+    tailwind = {
+      config: {
+        darkMode: 'class'
+      }
+    }
+  </script>
+
+  <!-- Load Tailwind CSS from CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Link to custom CSS file (for additional styles if needed) -->
+  <link rel="stylesheet" href="./style.css" />
+  
+  <!-- Add Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+<body class="bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100">
+  <!--
+    The body uses Tailwind classes:
+    - bg-white and text-gray-800 for light mode
+    - dark:bg-gray-900 and dark:text-gray-100 for dark mode (activated via 'dark' class on <html>)
+  -->
+
+  <header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700">
+    <div class="flex justify-between items-center p-4 max-w-7xl mx-auto">
+      <!--
+        Header with site title on the left,
+        navigation in the center, and theme toggle button on the right
+      -->
+      <div class="flex items-center space-x-2">
+        <i class="fas fa-tasks text-blue-600 text-2xl"></i>
+        <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">SprintMatrix</h1>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="hidden md:flex space-x-8">
+        <a href="#features" class="hover:text-blue-600 transition-colors">Features</a>
+        <a href="#testimonials" class="hover:text-blue-600 transition-colors">Reviews</a>
+        <a href="#pricing" class="hover:text-blue-600 transition-colors">Pricing</a>
+        <a href="#contact" class="hover:text-blue-600 transition-colors">Contact</a>
+      </nav>
+
+      <!--
+        Button that triggers the theme toggle JS.
+        The ID is used to select this element in script.js.
+        'aria-label' improves accessibility for screen readers.
+      -->
+      <button id="theme-toggle" aria-label="Toggle dark mode" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+        <i class="fas fa-moon dark:hidden"></i>
+        <i class="fas fa-sun hidden dark:block"></i>
+      </button>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto p-4 space-y-20">
+    <!-- Main content area, centered with max width and vertical spacing -->
+
+    <!-- Hero Section -->
+    <section id="hero" class="text-center py-20">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          The Complete Agile Project Management Platform for Modern Teams
+        </h2>
+        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed">
+          SprintMatrix is an all-in-one Agile project management solution that combines powerful sprint planning, team collaboration, time tracking, and analytics in one intuitive platform. Built for development teams of all sizes, from startups to enterprise organizations.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#pricing" class="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transform hover:scale-105 transition-all font-semibold">
+            <i class="fas fa-rocket mr-2"></i>Start Free Trial
+          </a>
+          <a href="#features" class="inline-block border border-blue-600 text-blue-600 px-8 py-4 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all font-semibold">
+            <i class="fas fa-play mr-2"></i>Watch Demo
+          </a>
+        </div>
+        <div class="mt-12 flex justify-center items-center space-x-8 text-sm text-gray-500">
+          <div class="flex items-center">
+            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+            <span>14-day free trial</span>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+            <span>No credit card required</span>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+            <span>Cancel anytime</span>
+          </div>
+        </div>
+        
+        <!-- Product Highlights -->
+        <div class="mt-16 grid md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-clock text-blue-600 text-2xl"></i>
+            </div>
+            <h4 class="font-semibold mb-2">Save 10+ Hours Weekly</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-300">Automate repetitive tasks and streamline workflows</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-chart-line text-green-600 text-2xl"></i>
+            </div>
+            <h4 class="font-semibold mb-2">Increase Productivity by 40%</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-300">Proven results from thousands of teams</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-users text-purple-600 text-2xl"></i>
+            </div>
+            <h4 class="font-semibold mb-2">Perfect for Any Team Size</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-300">From 2-person startups to 1000+ enterprise teams</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20">
+      <div class="text-center mb-16">
+        <h3 class="text-3xl font-bold mb-4">Everything You Need to Manage Projects Successfully</h3>
+        <p class="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          SprintMatrix provides comprehensive project management tools designed to help teams plan, execute, and deliver projects on time and within budget. From simple task lists to complex project portfolios, we've got you covered.
+        </p>
+      </div>
+      
+      <!-- Core Features -->
+      <div class="mb-20">
+        <h4 class="text-2xl font-bold text-center mb-12">Core Project Management Features</h4>
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div class="p-6 border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm hover:shadow-lg transition-all bg-white dark:bg-gray-800">
+            <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mb-4">
+              <i class="fas fa-tasks text-blue-600 text-xl"></i>
+            </div>
+            <h4 class="font-semibold mb-3 text-lg">Advanced Task Management</h4>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">Create, organize, and track tasks with our intuitive drag-and-drop interface. Set priorities, assign team members, and monitor progress in real-time.</p>
+            <ul class="text-sm text-gray-500 space-y-2">
+              <li>• Drag & drop task organization</li>
+              <li>• Priority levels (High, Medium, Low)</li>
+              <li>• Due dates and reminders</li>
+              <li>• Task dependencies and subtasks</li>
+              <li>• Time tracking integration</li>
+              <li>• Bulk task operations</li>
+            </ul>
+          </div>
+          
+          <div class="p-6 border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm hover:shadow-lg transition-all bg-white dark:bg-gray-800">
+            <div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center mb-4">
+              <i class="fas fa-chart-line text-green-600 text-xl"></i>
+            </div>
+            <h4 class="font-semibold mb-3 text-lg">Project Timeline & Gantt Charts</h4>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">Visualize project timelines with interactive Gantt charts. Plan milestones, track dependencies, and identify potential bottlenecks before they become issues.</p>
+            <ul class="text-sm text-gray-500 space-y-2">
+              <li>• Interactive Gantt chart view</li>
+              <li>• Milestone tracking</li>
+              <li>• Critical path analysis</li>
+              <li>• Resource allocation</li>
+              <li>• Timeline adjustments</li>
+              <li>• Export to PDF/Excel</li>
+            </ul>
+          </div>
+          
+          <div class="p-6 border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm hover:shadow-lg transition-all bg-white dark:bg-gray-800">
+            <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mb-4">
+              <i class="fas fa-users text-purple-600 text-xl"></i>
+            </div>
+            <h4 class="font-semibold mb-3 text-lg">Team Collaboration Hub</h4>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">Foster seamless collaboration with real-time communication tools, file sharing, and team activity feeds. Keep everyone on the same page.</p>
+            <ul class="text-sm text-gray-500 space-y-2">
+              <li>• Real-time chat and comments</li>
+              <li>• File sharing and version control</li>
+              <li>• Team activity feeds</li>
+              <li>• @mentions and notifications</li>
+              <li>• Video conferencing integration</li>
+              <li>• Team member roles & permissions</li>
+            </ul>
+          </div>
+          
+          <div class="p-6 border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm hover:shadow-lg transition-all bg-white dark:bg-gray-800">
+            <div class="w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-lg flex items-center justify-center mb-4">
+              <i class="fas fa-chart-bar text-orange-600 text-xl"></i>
+            </div>
+            <h4 class="font-semibold mb-3 text-lg">Advanced Analytics & Reporting</h4>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">Get deep insights into your team's performance with customizable dashboards, detailed reports, and predictive analytics to optimize productivity.</p>
+            <ul class="text-sm text-gray-500 space-y-2">
+              <li>• Custom dashboard builder</li>
+              <li>• Performance metrics tracking</li>
+              <li>• Burndown charts</li>
+              <li>• Velocity tracking</li>
+              <li>• Resource utilization reports</li>
+              <li>• Predictive analytics</li>
+            </ul>
+          </div>
+          
+          <div class="p-6 border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm hover:shadow-lg transition-all bg-white dark:bg-gray-800">
+            <div class="w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-lg flex items-center justify-center mb-4">
+              <i class="fas fa-mobile-alt text-red-600 text-xl"></i>
+            </div>
+            <h4 class="font-semibold mb-3 text-lg">Mobile-First Experience</h4>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">Stay productive on the go with our native mobile apps for iOS and Android. Full functionality with offline capabilities and push notifications.</p>
+            <ul class="text-sm text-gray-500 space-y-2">
+              <li>• Native iOS & Android apps</li>
+              <li>• Offline task management</li>
+              <li>• Push notifications</li>
+              <li>• Camera integration for tasks</li>
+              <li>• Voice-to-text input</li>
+              <li>• Biometric authentication</li>
+            </ul>
+          </div>
+          
+          <div class="p-6 border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm hover:shadow-lg transition-all bg-white dark:bg-gray-800">
+            <div class="w-12 h-12 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg flex items-center justify-center mb-4">
+              <i class="fas fa-shield-alt text-indigo-600 text-xl"></i>
+            </div>
+            <h4 class="font-semibold mb-3 text-lg">Enterprise Security & Compliance</h4>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">Bank-level security with enterprise-grade features including SSO, 2FA, audit logs, and compliance with industry standards.</p>
+            <ul class="text-sm text-gray-500 space-y-2">
+              <li>• SSO (SAML, OAuth 2.0)</li>
+              <li>• Two-factor authentication</li>
+              <li>• SOC 2 Type II compliance</li>
+              <li>• GDPR & HIPAA compliant</li>
+              <li>• Advanced audit logging</li>
+              <li>• Data encryption at rest</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Advanced Features -->
+      <div class="mb-20">
+        <h4 class="text-2xl font-bold text-center mb-12">Advanced Features for Power Users</h4>
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div class="p-6 border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm hover:shadow-lg transition-all bg-white dark:bg-gray-800">
+            <div class="w-12 h-12 bg-teal-100 dark:bg-teal-900/30 rounded-lg flex items-center justify-center mb-4">
+              <i class="fas fa-robot text-teal-600 text-xl"></i>
+            </div>
+            <h4 class="font-semibold mb-3 text-lg">AI-Powered Automation</h4>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">Leverage artificial intelligence to automate repetitive tasks, predict project delays, and optimize resource allocation.</p>
+            <ul class="text-sm text-gray-500 space-y-2">
+              <li>• Smart task assignment</li>
+              <li>• Automated workflow triggers</li>
+              <li>• Predictive project delays</li>
+              <li>• Intelligent resource allocation</li>
+              <li>• AI-powered reporting</li>
+              <li>• Natural language processing</li>
+            </ul>
+          </div>
+          
+          <div class="p-6 border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm hover:shadow-lg transition-all bg-white dark:bg-gray-800">
+            <div class="w-12 h-12 bg-pink-100 dark:bg-pink-900/30 rounded-lg flex items-center justify-center mb-4">
+              <i class="fas fa-plug text-pink-600 text-xl"></i>
+            </div>
+            <h4 class="font-semibold mb-3 text-lg">500+ Integrations</h4>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">Connect with your favorite tools through our extensive integration library. From Slack to Salesforce, we integrate with everything.</p>
+            <ul class="text-sm text-gray-500 space-y-2">
+              <li>• Slack, Microsoft Teams</li>
+              <li>• Salesforce, HubSpot</li>
+              <li>• GitHub, GitLab, Bitbucket</li>
+              <li>• Google Workspace, Office 365</li>
+              <li>• Zapier, Make.com</li>
+              <li>• Custom API access</li>
+            </ul>
+          </div>
+          
+          <div class="p-6 border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm hover:shadow-lg transition-all bg-white dark:bg-gray-800">
+            <div class="w-12 h-12 bg-yellow-100 dark:bg-yellow-900/30 rounded-lg flex items-center justify-center mb-4">
+              <i class="fas fa-clock text-yellow-600 text-xl"></i>
+            </div>
+            <h4 class="font-semibold mb-3 text-lg">Time Tracking & Billing</h4>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">Track time spent on tasks, generate detailed reports, and integrate with billing systems for accurate project costing.</p>
+            <ul class="text-sm text-gray-500 space-y-2">
+              <li>• Manual & automatic time tracking</li>
+              <li>• Project & task time reports</li>
+              <li>• Billable hours calculation</li>
+              <li>• Integration with billing tools</li>
+              <li>• Time approval workflows</li>
+              <li>• Overtime tracking</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Use Cases -->
+      <div class="mb-20">
+        <h4 class="text-2xl font-bold text-center mb-12">Perfect for Every Industry</h4>
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div class="text-center p-6">
+            <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-code text-blue-600 text-2xl"></i>
+            </div>
+            <h5 class="font-semibold mb-2">Software Development</h5>
+            <p class="text-sm text-gray-600 dark:text-gray-300">Agile project management, sprint planning, bug tracking, and code integration</p>
+          </div>
+          <div class="text-center p-6">
+            <div class="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-briefcase text-green-600 text-2xl"></i>
+            </div>
+            <h5 class="font-semibold mb-2">Marketing Teams</h5>
+            <p class="text-sm text-gray-600 dark:text-gray-300">Campaign management, content calendars, social media planning, and ROI tracking</p>
+          </div>
+          <div class="text-center p-6">
+            <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-palette text-purple-600 text-2xl"></i>
+            </div>
+            <h5 class="font-semibold mb-2">Design Agencies</h5>
+            <p class="text-sm text-gray-600 dark:text-gray-300">Creative project workflows, client feedback, asset management, and design reviews</p>
+          </div>
+          <div class="text-center p-6">
+            <div class="w-16 h-16 bg-orange-100 dark:bg-orange-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-cogs text-orange-600 text-2xl"></i>
+            </div>
+            <h5 class="font-semibold mb-2">Operations</h5>
+            <p class="text-sm text-gray-600 dark:text-gray-300">Process management, quality control, compliance tracking, and operational efficiency</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-gray-50 dark:bg-gray-800 rounded-2xl">
+      <div class="text-center mb-12">
+        <h3 class="text-3xl font-bold mb-4">Trusted by Teams Worldwide</h3>
+        <p class="text-gray-600 dark:text-gray-300">Join thousands of companies that trust SprintMatrix</p>
+      </div>
+      
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+        <div class="text-center">
+          <div class="text-3xl font-bold text-blue-600 mb-2">50K+</div>
+          <div class="text-gray-600 dark:text-gray-300">Active Users</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-blue-600 mb-2">10K+</div>
+          <div class="text-gray-600 dark:text-gray-300">Companies</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-blue-600 mb-2">99.9%</div>
+          <div class="text-gray-600 dark:text-gray-300">Uptime</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-blue-600 mb-2">24/7</div>
+          <div class="text-gray-600 dark:text-gray-300">Support</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="py-20">
+      <div class="text-center mb-16">
+        <h3 class="text-3xl font-bold mb-4">Why Choose SprintMatrix Over Other Tools?</h3>
+        <p class="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          We've analyzed the market and built SprintMatrix to address the limitations of existing Agile project management tools.
+        </p>
+      </div>
+      
+      <div class="max-w-6xl mx-auto">
+        <div class="overflow-x-auto">
+          <table class="w-full border-collapse">
+            <thead>
+              <tr class="border-b border-gray-200 dark:border-gray-700">
+                <th class="text-left p-4 font-semibold">Features</th>
+                <th class="text-center p-4 font-semibold text-blue-600">SprintMatrix</th>
+                <th class="text-center p-4 font-semibold text-gray-500">Asana</th>
+                <th class="text-center p-4 font-semibold text-gray-500">Trello</th>
+                <th class="text-center p-4 font-semibold text-gray-500">Monday.com</th>
+              </tr>
+            </thead>
+            <tbody class="text-sm">
+              <tr class="border-b border-gray-100 dark:border-gray-800">
+                <td class="p-4 font-medium">Starting Price</td>
+                <td class="p-4 text-center text-green-600 font-semibold">$10/user/month</td>
+                <td class="p-4 text-center">$13.49/user/month</td>
+                <td class="p-4 text-center">$12.50/user/month</td>
+                <td class="p-4 text-center">$12/user/month</td>
+              </tr>
+              <tr class="border-b border-gray-100 dark:border-gray-800">
+                <td class="p-4 font-medium">Gantt Charts</td>
+                <td class="p-4 text-center"><i class="fas fa-check text-green-500"></i></td>
+                <td class="p-4 text-center"><i class="fas fa-check text-green-500"></i></td>
+                <td class="p-4 text-center"><i class="fas fa-times text-red-500"></i></td>
+                <td class="p-4 text-center"><i class="fas fa-check text-green-500"></i></td>
+              </tr>
+              <tr class="border-b border-gray-100 dark:border-gray-800">
+                <td class="p-4 font-medium">Time Tracking</td>
+                <td class="p-4 text-center"><i class="fas fa-check text-green-500"></i></td>
+                <td class="p-4 text-center"><i class="fas fa-times text-red-500"></i></td>
+                <td class="p-4 text-center"><i class="fas fa-times text-red-500"></i></td>
+                <td class="p-4 text-center"><i class="fas fa-check text-green-500"></i></td>
+              </tr>
+              <tr class="border-b border-gray-100 dark:border-gray-800">
+                <td class="p-4 font-medium">AI Automation</td>
+                <td class="p-4 text-center"><i class="fas fa-check text-green-500"></i></td>
+                <td class="p-4 text-center"><i class="fas fa-times text-red-500"></i></td>
+                <td class="p-4 text-center"><i class="fas fa-times text-red-500"></i></td>
+                <td class="p-4 text-center"><i class="fas fa-times text-red-500"></i></td>
+              </tr>
+              <tr class="border-b border-gray-100 dark:border-gray-800">
+                <td class="p-4 font-medium">Advanced Analytics</td>
+                <td class="p-4 text-center"><i class="fas fa-check text-green-500"></i></td>
+                <td class="p-4 text-center"><i class="fas fa-check text-green-500"></i></td>
+                <td class="p-4 text-center"><i class="fas fa-times text-red-500"></i></td>
+                <td class="p-4 text-center"><i class="fas fa-check text-green-500"></i></td>
+              </tr>
+              <tr class="border-b border-gray-100 dark:border-gray-800">
+                <td class="p-4 font-medium">Mobile Apps</td>
+                <td class="p-4 text-center"><i class="fas fa-check text-green-500"></i></td>
+                <td class="p-4 text-center"><i class="fas fa-check text-green-500"></i></td>
+                <td class="p-4 text-center"><i class="fas fa-check text-green-500"></i></td>
+                <td class="p-4 text-center"><i class="fas fa-check text-green-500"></i></td>
+              </tr>
+              <tr class="border-b border-gray-100 dark:border-gray-800">
+                <td class="p-4 font-medium">API Access</td>
+                <td class="p-4 text-center"><i class="fas fa-check text-green-500"></i></td>
+                <td class="p-4 text-center"><i class="fas fa-check text-green-500"></i></td>
+                <td class="p-4 text-center"><i class="fas fa-check text-green-500"></i></td>
+                <td class="p-4 text-center"><i class="fas fa-check text-green-500"></i></td>
+              </tr>
+              <tr class="border-b border-gray-100 dark:border-gray-800">
+                <td class="p-4 font-medium">Enterprise Security</td>
+                <td class="p-4 text-center"><i class="fas fa-check text-green-500"></i></td>
+                <td class="p-4 text-center"><i class="fas fa-check text-green-500"></i></td>
+                <td class="p-4 text-center"><i class="fas fa-times text-red-500"></i></td>
+                <td class="p-4 text-center"><i class="fas fa-check text-green-500"></i></td>
+              </tr>
+              <tr class="border-b border-gray-100 dark:border-gray-800">
+                <td class="p-4 font-medium">Free Trial</td>
+                <td class="p-4 text-center text-green-600 font-semibold">14 days</td>
+                <td class="p-4 text-center">30 days</td>
+                <td class="p-4 text-center">14 days</td>
+                <td class="p-4 text-center">14 days</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="mt-12 text-center">
+          <h4 class="text-xl font-semibold mb-4">Key Advantages of SprintMatrix</h4>
+          <div class="grid md:grid-cols-3 gap-8">
+            <div class="text-center">
+              <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-dollar-sign text-blue-600 text-xl"></i>
+              </div>
+              <h5 class="font-semibold mb-2">Better Value</h5>
+              <p class="text-sm text-gray-600 dark:text-gray-300">More features at a lower price point compared to competitors</p>
+            </div>
+            <div class="text-center">
+              <div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-brain text-green-600 text-xl"></i>
+              </div>
+              <h5 class="font-semibold mb-2">AI-Powered</h5>
+              <p class="text-sm text-gray-600 dark:text-gray-300">Unique AI automation features not available in other tools</p>
+            </div>
+            <div class="text-center">
+              <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-clock text-purple-600 text-xl"></i>
+              </div>
+              <h5 class="font-semibold mb-2">Built-in Time Tracking</h5>
+              <p class="text-sm text-gray-600 dark:text-gray-300">No need for additional time tracking tools or integrations</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20">
+      <div class="text-center mb-16">
+        <h3 class="text-3xl font-bold mb-4">Trusted by Development Teams Worldwide</h3>
+        <p class="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          See how development teams across different industries are using SprintMatrix to transform their Agile project management and achieve remarkable results.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div class="p-6 border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 shadow-sm">
+          <div class="flex items-center mb-4">
+            <div class="flex text-yellow-400">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <blockquote class="text-gray-600 dark:text-gray-300 mb-4">
+            "SprintMatrix transformed our development workflow. The AI-powered task assignment and time tracking features helped us increase our sprint velocity by 35%. The Gantt charts are incredibly intuitive for planning complex projects."
+          </blockquote>
+          <div class="flex items-center">
+            <div class="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mr-3">
+              <i class="fas fa-user text-blue-600"></i>
+            </div>
+            <div>
+              <div class="font-semibold">Sarah Johnson</div>
+              <div class="text-sm text-gray-500">CTO, TechCorp (50-person team)</div>
+              <div class="text-xs text-blue-600 mt-1">Software Development</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="p-6 border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 shadow-sm">
+          <div class="flex items-center mb-4">
+            <div class="flex text-yellow-400">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <blockquote class="text-gray-600 dark:text-gray-300 mb-4">
+            "As a marketing agency managing 20+ client campaigns simultaneously, SprintMatrix's client portal and automated reporting features have been game-changing. We've reduced campaign setup time by 60%."
+          </blockquote>
+          <div class="flex items-center">
+            <div class="w-10 h-10 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mr-3">
+              <i class="fas fa-user text-green-600"></i>
+            </div>
+            <div>
+              <div class="font-semibold">James Chen</div>
+              <div class="text-sm text-gray-500">CEO, StartupXYZ (25-person team)</div>
+              <div class="text-xs text-green-600 mt-1">Digital Marketing</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="p-6 border border-gray-200 dark:border-gray-700 rounded-xl bg-white dark:bg-gray-800 shadow-sm">
+          <div class="flex items-center mb-4">
+            <div class="flex text-yellow-400">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <blockquote class="text-gray-600 dark:text-gray-300 mb-4">
+            "The analytics and reporting capabilities are incredible. We can now track project profitability in real-time and make data-driven decisions. Our project margins have improved by 25% since switching."
+          </blockquote>
+          <div class="flex items-center">
+            <div class="w-10 h-10 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mr-3">
+              <i class="fas fa-user text-purple-600"></i>
+            </div>
+            <div>
+              <div class="font-semibold">Maria Rodriguez</div>
+              <div class="text-sm text-gray-500">Operations Director, Innovation Labs (100-person team)</div>
+              <div class="text-xs text-purple-600 mt-1">Consulting Services</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Customer Success Stories -->
+      <div class="mt-20">
+        <h4 class="text-2xl font-bold text-center mb-12">Customer Success Stories</h4>
+        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div class="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 p-8 rounded-xl">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-rocket text-white text-xl"></i>
+              </div>
+              <div>
+                <h5 class="font-bold text-lg">RapidScale Solutions</h5>
+                <p class="text-sm text-gray-600 dark:text-gray-300">SaaS Startup • 15-person team</p>
+              </div>
+            </div>
+            <div class="space-y-3 text-sm">
+              <div class="flex justify-between">
+                <span>Project delivery time:</span>
+                <span class="font-semibold text-green-600">Reduced by 40%</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Team productivity:</span>
+                <span class="font-semibold text-green-600">Increased by 35%</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Client satisfaction:</span>
+                <span class="font-semibold text-green-600">Improved by 50%</span>
+              </div>
+            </div>
+            <p class="mt-4 text-sm text-gray-600 dark:text-gray-300">
+              "SprintMatrix helped us scale from a 5-person team to 15 people while maintaining our high-quality standards and fast delivery times."
+            </p>
+          </div>
+          
+          <div class="bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 p-8 rounded-xl">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-building text-white text-xl"></i>
+              </div>
+              <div>
+                <h5 class="font-bold text-lg">Global Manufacturing Co.</h5>
+                <p class="text-sm text-gray-600 dark:text-gray-300">Enterprise • 500+ person team</p>
+              </div>
+            </div>
+            <div class="space-y-3 text-sm">
+              <div class="flex justify-between">
+                <span>Project visibility:</span>
+                <span class="font-semibold text-green-600">Improved by 80%</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Resource utilization:</span>
+                <span class="font-semibold text-green-600">Optimized by 45%</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Compliance tracking:</span>
+                <span class="font-semibold text-green-600">100% automated</span>
+              </div>
+            </div>
+            <p class="mt-4 text-sm text-gray-600 dark:text-gray-300">
+              "The enterprise security features and compliance tracking capabilities made our transition seamless and secure."
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20">
+      <div class="text-center mb-16">
+        <h3 class="text-3xl font-bold mb-4">Frequently Asked Questions</h3>
+        <p class="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          Get answers to the most common questions about SprintMatrix features, pricing, and implementation.
+        </p>
+      </div>
+      
+      <div class="max-w-4xl mx-auto">
+        <div class="space-y-6">
+          <!-- FAQ Item 1 -->
+          <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6">
+            <button class="flex justify-between items-center w-full text-left" onclick="toggleFAQ(this)">
+              <h4 class="font-semibold text-lg">What makes SprintMatrix different from other project management tools?</h4>
+              <i class="fas fa-chevron-down text-blue-600 transition-transform"></i>
+            </button>
+            <div class="mt-4 text-gray-600 dark:text-gray-300 hidden">
+              <p>SprintMatrix combines the best features of traditional project management tools with cutting-edge AI automation. Our unique selling points include:</p>
+              <ul class="mt-2 space-y-1 text-sm">
+                <li>• AI-powered task assignment and resource optimization</li>
+                <li>• Built-in time tracking without additional costs</li>
+                <li>• Advanced analytics with predictive insights</li>
+                <li>• More affordable pricing compared to competitors</li>
+                <li>• Enterprise-grade security at all plan levels</li>
+                <li>• 500+ integrations out of the box</li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- FAQ Item 2 -->
+          <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6">
+            <button class="flex justify-between items-center w-full text-left" onclick="toggleFAQ(this)">
+              <h4 class="font-semibold text-lg">How does the AI automation feature work?</h4>
+              <i class="fas fa-chevron-down text-blue-600 transition-transform"></i>
+            </button>
+            <div class="mt-4 text-gray-600 dark:text-gray-300 hidden">
+              <p>Our AI system learns from your team's work patterns and project history to:</p>
+              <ul class="mt-2 space-y-1 text-sm">
+                <li>• Automatically assign tasks to the most suitable team members based on skills and availability</li>
+                <li>• Predict potential project delays and suggest mitigation strategies</li>
+                <li>• Optimize resource allocation across multiple projects</li>
+                <li>• Generate intelligent project timelines based on historical data</li>
+                <li>• Provide personalized productivity insights for each team member</li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- FAQ Item 3 -->
+          <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6">
+            <button class="flex justify-between items-center w-full text-left" onclick="toggleFAQ(this)">
+              <h4 class="font-semibold text-lg">Can I import data from other project management tools?</h4>
+              <i class="fas fa-chevron-down text-blue-600 transition-transform"></i>
+            </button>
+            <div class="mt-4 text-gray-600 dark:text-gray-300 hidden">
+              <p>Yes! SprintMatrix provides comprehensive data import capabilities:</p>
+              <ul class="mt-2 space-y-1 text-sm">
+                <li>• Direct imports from Asana, Trello, Monday.com, and Jira</li>
+                <li>• CSV/Excel import for custom data</li>
+                <li>• API access for automated data migration</li>
+                <li>• Free migration assistance from our support team</li>
+                <li>• Data validation to ensure nothing is lost during transfer</li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- FAQ Item 4 -->
+          <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6">
+            <button class="flex justify-between items-center w-full text-left" onclick="toggleFAQ(this)">
+              <h4 class="font-semibold text-lg">What kind of support do you provide?</h4>
+              <i class="fas fa-chevron-down text-blue-600 transition-transform"></i>
+            </button>
+            <div class="mt-4 text-gray-600 dark:text-gray-300 hidden">
+              <p>We offer comprehensive support across all plans:</p>
+              <ul class="mt-2 space-y-1 text-sm">
+                <li>• 24/7 live chat support</li>
+                <li>• Email support with 4-hour response time</li>
+                <li>• Extensive knowledge base with video tutorials</li>
+                <li>• Weekly webinars and training sessions</li>
+                <li>• Dedicated account manager for Enterprise plans</li>
+                <li>• Custom training sessions for large teams</li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- FAQ Item 5 -->
+          <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6">
+            <button class="flex justify-between items-center w-full text-left" onclick="toggleFAQ(this)">
+              <h4 class="font-semibold text-lg">Is SprintMatrix suitable for large enterprise organizations?</h4>
+              <i class="fas fa-chevron-down text-blue-600 transition-transform"></i>
+            </button>
+            <div class="mt-4 text-gray-600 dark:text-gray-300 hidden">
+              <p>Absolutely! Our Enterprise plan is specifically designed for large organizations:</p>
+              <ul class="mt-2 space-y-1 text-sm">
+                <li>• Unlimited users and projects</li>
+                <li>• Advanced SSO integration (SAML, OAuth 2.0)</li>
+                <li>• Custom data retention policies</li>
+                <li>• Advanced audit logging and compliance reporting</li>
+                <li>• Dedicated infrastructure for enhanced performance</li>
+                <li>• Custom integrations and API development</li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- FAQ Item 6 -->
+          <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6">
+            <button class="flex justify-between items-center w-full text-left" onclick="toggleFAQ(this)">
+              <h4 class="font-semibold text-lg">How secure is my data in SprintMatrix?</h4>
+              <i class="fas fa-chevron-down text-blue-600 transition-transform"></i>
+            </button>
+            <div class="mt-4 text-gray-600 dark:text-gray-300 hidden">
+              <p>Security is our top priority. We implement enterprise-grade security measures:</p>
+              <ul class="mt-2 space-y-1 text-sm">
+                <li>• SOC 2 Type II certified with annual audits</li>
+                <li>• End-to-end encryption for data in transit and at rest</li>
+                <li>• Regular penetration testing by third-party security firms</li>
+                <li>• GDPR and HIPAA compliance</li>
+                <li>• Multi-factor authentication for all users</li>
+                <li>• Data residency options for international compliance</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20">
+      <div class="text-center mb-16">
+        <h3 class="text-3xl font-bold mb-4">Simple, Transparent Pricing</h3>
+        <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          Choose the plan that's right for your team. All plans include our core features with no hidden fees.
+        </p>
+      </div>
+      
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+        <!-- Pricing cards styled with Tailwind -->
+        <div class="p-8 border border-gray-200 dark:border-gray-700 rounded-xl text-center bg-white dark:bg-gray-800 shadow-sm hover:shadow-lg transition-all">
+          <h4 class="font-semibold mb-2 text-xl">Free</h4>
+          <div class="text-4xl font-bold mb-2">$0</div>
+          <p class="text-gray-600 dark:text-gray-300 mb-6">Perfect for individuals and small teams</p>
+          <ul class="text-left space-y-3 mb-8">
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-3"></i>
+              <span>Up to 5 team members</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-3"></i>
+              <span>Basic task management</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-3"></i>
+              <span>1GB storage</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-3"></i>
+              <span>Email support</span>
+            </li>
+          </ul>
+          <button class="w-full bg-gray-300 px-6 py-3 rounded-lg cursor-not-allowed" disabled>Current Plan</button>
+        </div>
+        
+        <div class="p-8 border-2 border-blue-600 rounded-xl text-center bg-blue-600 text-white shadow-lg transform scale-105">
+          <div class="bg-yellow-400 text-yellow-900 px-3 py-1 rounded-full text-sm font-semibold mb-4 inline-block">Most Popular</div>
+          <h4 class="font-semibold mb-2 text-xl">Pro</h4>
+          <div class="text-4xl font-bold mb-2">$10</div>
+          <div class="text-sm mb-6">per user/month</div>
+          <p class="mb-6 opacity-90">Advanced features for growing teams</p>
+          <ul class="text-left space-y-3 mb-8">
+            <li class="flex items-center">
+              <i class="fas fa-check mr-3"></i>
+              <span>Unlimited team members</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check mr-3"></i>
+              <span>Advanced analytics</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check mr-3"></i>
+              <span>10GB storage</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check mr-3"></i>
+              <span>Priority support</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check mr-3"></i>
+              <span>Custom integrations</span>
+            </li>
+          </ul>
+          <button class="w-full bg-white text-blue-600 px-6 py-3 rounded-lg hover:bg-gray-100 font-semibold">Start Free Trial</button>
+        </div>
+        
+        <div class="p-8 border border-gray-200 dark:border-gray-700 rounded-xl text-center bg-white dark:bg-gray-800 shadow-sm hover:shadow-lg transition-all">
+          <h4 class="font-semibold mb-2 text-xl">Enterprise</h4>
+          <div class="text-4xl font-bold mb-2">Custom</div>
+          <p class="text-gray-600 dark:text-gray-300 mb-6">For large organizations</p>
+          <ul class="text-left space-y-3 mb-8">
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-3"></i>
+              <span>Everything in Pro</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-3"></i>
+              <span>SSO & advanced security</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-3"></i>
+              <span>Unlimited storage</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-3"></i>
+              <span>Dedicated account manager</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-check text-green-500 mr-3"></i>
+              <span>Custom training</span>
+            </li>
+          </ul>
+          <button class="w-full border border-blue-600 text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 font-semibold">Contact Sales</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl text-white text-center">
+      <div class="max-w-3xl mx-auto">
+        <h3 class="text-3xl font-bold mb-4">Ready to Transform Your Agile Workflow?</h3>
+        <p class="text-xl mb-8 opacity-90">
+          Join thousands of development teams who have already improved their productivity with SprintMatrix.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#pricing" class="inline-block bg-white text-blue-600 px-8 py-4 rounded-lg hover:bg-gray-100 font-semibold">
+            Start Your Free Trial
+          </a>
+          <a href="#contact" class="inline-block border border-white text-white px-8 py-4 rounded-lg hover:bg-white/10 font-semibold">
+            Schedule Demo
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+      <div class="text-center mb-16">
+        <h3 class="text-3xl font-bold mb-4">Get in Touch</h3>
+        <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          Have questions? Our team is here to help you get started with SprintMatrix.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+        <div>
+          <h4 class="text-xl font-semibold mb-6">Contact Information</h4>
+          <div class="space-y-4">
+            <div class="flex items-center">
+              <i class="fas fa-envelope text-blue-600 mr-3"></i>
+              <span>support@sprintmatrix.com</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-phone text-blue-600 mr-3"></i>
+              <span>+1 (555) 123-4567</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-map-marker-alt text-blue-600 mr-3"></i>
+              <span>123 Business Ave, Tech City, TC 12345</span>
+            </div>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-xl font-semibold mb-6">Quick Contact Form</h4>
+          <form class="space-y-4">
+            <input type="text" placeholder="Your Name" class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800">
+            <input type="email" placeholder="Your Email" class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800">
+            <textarea placeholder="Your Message" rows="4" class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800"></textarea>
+            <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 font-semibold">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Specifications Section -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-800 rounded-2xl">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-16">
+          <h3 class="text-3xl font-bold mb-4">Technical Specifications & Capabilities</h3>
+          <p class="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            Built with modern technology to ensure reliability, security, and performance for teams of all sizes.
+          </p>
+        </div>
+        
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <!-- Platform & Performance -->
+          <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-sm">
+            <h4 class="font-semibold mb-4 text-lg flex items-center">
+              <i class="fas fa-server text-blue-600 mr-3"></i>
+              Platform & Performance
+            </h4>
+            <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+              <li>• Cloud-based SaaS platform</li>
+              <li>• 99.9% uptime guarantee</li>
+              <li>• Global CDN for fast loading</li>
+              <li>• Real-time data synchronization</li>
+              <li>• Automatic backups every 15 minutes</li>
+              <li>• Multi-region data centers</li>
+            </ul>
+          </div>
+          
+          <!-- Security & Compliance -->
+          <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-sm">
+            <h4 class="font-semibold mb-4 text-lg flex items-center">
+              <i class="fas fa-shield-alt text-green-600 mr-3"></i>
+              Security & Compliance
+            </h4>
+            <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+              <li>• SOC 2 Type II certified</li>
+              <li>• GDPR & HIPAA compliant</li>
+              <li>• End-to-end encryption</li>
+              <li>• Regular security audits</li>
+              <li>• Penetration testing</li>
+              <li>• Data residency options</li>
+            </ul>
+          </div>
+          
+          <!-- Integrations -->
+          <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-sm">
+            <h4 class="font-semibold mb-4 text-lg flex items-center">
+              <i class="fas fa-plug text-purple-600 mr-3"></i>
+              Integrations & API
+            </h4>
+            <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+              <li>• RESTful API with full documentation</li>
+              <li>• Webhook support</li>
+              <li>• 500+ pre-built integrations</li>
+              <li>• Zapier & Make.com support</li>
+              <li>• Custom integration development</li>
+              <li>• SDK for mobile apps</li>
+            </ul>
+          </div>
+          
+          <!-- Data & Storage -->
+          <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-sm">
+            <h4 class="font-semibold mb-4 text-lg flex items-center">
+              <i class="fas fa-database text-orange-600 mr-3"></i>
+              Data & Storage
+            </h4>
+            <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+              <li>• Unlimited projects & tasks</li>
+              <li>• 100GB file storage per user</li>
+              <li>• Advanced search capabilities</li>
+              <li>• Data export in multiple formats</li>
+              <li>• Automated data retention</li>
+              <li>• Cross-project data linking</li>
+            </ul>
+          </div>
+          
+          <!-- User Management -->
+          <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-sm">
+            <h4 class="font-semibold mb-4 text-lg flex items-center">
+              <i class="fas fa-users-cog text-red-600 mr-3"></i>
+              User Management
+            </h4>
+            <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+              <li>• Role-based access control</li>
+              <li>• Single Sign-On (SSO)</li>
+              <li>• Two-factor authentication</li>
+              <li>• Guest user access</li>
+              <li>• Bulk user management</li>
+              <li>• User activity monitoring</li>
+            </ul>
+          </div>
+          
+          <!-- Reporting & Analytics -->
+          <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-sm">
+            <h4 class="font-semibold mb-4 text-lg flex items-center">
+              <i class="fas fa-chart-pie text-indigo-600 mr-3"></i>
+              Reporting & Analytics
+            </h4>
+            <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+              <li>• 50+ pre-built report templates</li>
+              <li>• Custom report builder</li>
+              <li>• Real-time dashboards</li>
+              <li>• Scheduled report delivery</li>
+              <li>• Advanced filtering options</li>
+              <li>• Export to PDF, Excel, CSV</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer with muted text -->
+  <footer class="bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 mt-20">
+    <div class="max-w-7xl mx-auto p-8">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <div class="flex items-center space-x-2 mb-4">
+            <i class="fas fa-tasks text-blue-600 text-xl"></i>
+            <h5 class="text-lg font-bold">SprintMatrix</h5>
+          </div>
+          <p class="text-gray-600 dark:text-gray-300 text-sm">
+            Making task management simple and efficient for teams worldwide.
+          </p>
+        </div>
+        
+        <div>
+          <h6 class="font-semibold mb-4">Product</h6>
+          <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+            <li><a href="#" class="hover:text-blue-600">Features</a></li>
+            <li><a href="#" class="hover:text-blue-600">Pricing</a></li>
+            <li><a href="#" class="hover:text-blue-600">Integrations</a></li>
+            <li><a href="#" class="hover:text-blue-600">API</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h6 class="font-semibold mb-4">Company</h6>
+          <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+            <li><a href="#" class="hover:text-blue-600">About</a></li>
+            <li><a href="#" class="hover:text-blue-600">Blog</a></li>
+            <li><a href="#" class="hover:text-blue-600">Careers</a></li>
+            <li><a href="#" class="hover:text-blue-600">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h6 class="font-semibold mb-4">Support</h6>
+          <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+            <li><a href="#" class="hover:text-blue-600">Help Center</a></li>
+            <li><a href="#" class="hover:text-blue-600">Documentation</a></li>
+            <li><a href="#" class="hover:text-blue-600">Community</a></li>
+            <li><a href="#" class="hover:text-blue-600">Status</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-200 dark:border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-sm text-gray-500 dark:text-gray-400">
+          &copy; 2025 SprintMatrix. All rights reserved.
+        </p>
+        <div class="flex space-x-6 mt-4 md:mt-0">
+          <a href="#" class="text-gray-400 hover:text-blue-600"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="text-gray-400 hover:text-blue-600"><i class="fab fa-linkedin"></i></a>
+          <a href="#" class="text-gray-400 hover:text-blue-600"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Load the theme toggle JavaScript -->
+  <script src="./script.js"></script>
+</body>
+</html>
