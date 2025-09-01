@@ -528,8 +528,13 @@
   }
   
   html:not(.dark) li {
-    color: #4b5563 !important;
-  }
+  color: #4b5563 !important;
+}
+
+/* Override for white text in colored backgrounds */
+html:not(.dark) li.text-white {
+  color: #ffffff !important;
+}
   
   html:not(.dark) span {
     color: inherit !important;
