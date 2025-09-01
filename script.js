@@ -59,6 +59,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
   
+  // Make toggleFAQ globally available
+  window.toggleFAQ = toggleFAQ;
+  
   // Theme toggle functionality
   function initializeThemeToggle() {
     const htmlElement = document.documentElement;
