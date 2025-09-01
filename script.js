@@ -67,6 +67,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const htmlElement = document.documentElement;
     const themeToggleBtn = document.getElementById('theme-toggle');
     const savedTheme = localStorage.getItem('theme');
+    const moonIcon = themeToggleBtn.querySelector('.fa-moon');
+    const sunIcon = themeToggleBtn.querySelector('.fa-sun');
   
     console.log('Theme toggle initialization:', {
       htmlElement: htmlElement,
@@ -80,17 +82,30 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
   
+    // Function to update icon visibility
+    function updateIconVisibility(isDarkMode) {
+      if (isDarkMode) {
+        moonIcon.style.display = 'none';
+        sunIcon.style.display = 'block';
+      } else {
+        moonIcon.style.display = 'block';
+        sunIcon.style.display = 'none';
+      }
+    }
+  
     // Determine whether to enable dark mode
     // Default to light mode if no saved preference
     if (savedTheme === 'dark') {
       htmlElement.classList.add('dark');
       htmlElement.setAttribute('data-theme', 'dark');
+      updateIconVisibility(true);
       console.log('Dark mode enabled on load');
     } else {
       // Default to light mode
       htmlElement.classList.remove('dark');
       htmlElement.setAttribute('data-theme', 'light');
       localStorage.setItem('theme', 'light'); // Set default
+      updateIconVisibility(false);
       console.log('Light mode enabled on load (default)');
     }
   
@@ -101,6 +116,9 @@ document.addEventListener('DOMContentLoaded', () => {
       
       // Also set data attribute for fallback
       htmlElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+      
+      // Update icon visibility
+      updateIconVisibility(isDarkMode);
       
       console.log('Theme toggled:', isDarkMode ? 'dark' : 'light');
       

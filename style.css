@@ -782,6 +782,15 @@ html:not(.dark) li.text-white {
     transform: scale(1.1) rotate(5deg);
   }
   
+  /* Theme toggle icon management */
+  #theme-toggle .fa-sun {
+    display: none;
+  }
+  
+  #theme-toggle .fa-moon {
+    display: block;
+  }
+  
   /* Mobile menu toggle */
   .mobile-menu-toggle {
     display: none;
