@@ -36,27 +36,41 @@
 
   <header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700">
     <div class="flex justify-between items-center p-4 max-w-7xl mx-auto">
-      <!--
-        Header with site title on the left,
-        navigation in the center, and theme toggle button on the right
-      -->
+      <!-- Logo / Title -->
       <div class="flex items-center space-x-2">
         <i class="fas fa-tasks text-blue-600 text-2xl"></i>
         <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">SprintMatrix</h1>
       </div>
 
-      <!-- Navigation -->
-      <nav class="hidden md:flex space-x-8">
-        <a href="#features" class="hover:text-blue-600 transition-colors">Features</a>
-        <a href="#testimonials" class="hover:text-blue-600 transition-colors">Reviews</a>
-        <a href="#pricing" class="hover:text-blue-600 transition-colors">Pricing</a>
-        <a href="#contact" class="hover:text-blue-600 transition-colors">Contact</a>
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex space-x-8 items-center text-sm">
+        <a href="#features" class="nav-link text-gray-700 dark:text-gray-200 font-medium">Features</a>
+        <a href="#testimonials" class="nav-link text-gray-700 dark:text-gray-200 font-medium">Reviews</a>
+        <a href="#pricing" class="nav-link text-gray-700 dark:text-gray-200 font-medium">Pricing</a>
+        <a href="#contact" class="nav-link text-gray-700 dark:text-gray-200 font-medium">Contact</a>
       </nav>
 
-      <!--
-        Button that triggers the theme toggle JS.
-      -->
-      <button id="theme-toggle" aria-label="Toggle dark mode" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+      <!-- Mobile Menu Toggle -->
+      <div class="md:hidden relative">
+        <button id="mobile-menu-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle mobile menu" aria-expanded="false">
+          <svg class="w-6 h-6 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden absolute top-full right-0 mt-2 z-40 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 w-auto min-w-[200px]">
+          <nav class="flex flex-col py-2 px-2">
+            <a href="#features" class="nav-link py-2 px-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors text-center text-gray-700 dark:text-gray-200 font-medium">Features</a>
+            <a href="#testimonials" class="nav-link py-2 px-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors text-center text-gray-700 dark:text-gray-200 font-medium">Reviews</a>
+            <a href="#pricing" class="nav-link py-2 px-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors text-center text-gray-700 dark:text-gray-200 font-medium">Pricing</a>
+            <a href="#contact" class="nav-link py-2 px-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors text-center text-gray-700 dark:text-gray-200 font-medium">Contact</a>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Theme Toggle -->
+      <button id="theme-toggle" aria-label="Toggle dark mode" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors ml-2">
          <i class="fas fa-moon text-gray-600 dark:text-gray-300"></i>
          <i class="fas fa-sun text-gray-600 dark:text-gray-300"></i>
        </button>

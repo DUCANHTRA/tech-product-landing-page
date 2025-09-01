@@ -288,31 +288,29 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Mobile menu toggle
   function initializeMobileMenu() {
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const nav = document.querySelector('nav');
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
     
-    if (mobileMenuToggle && nav) {
+    if (mobileMenuToggle && mobileMenu) {
       mobileMenuToggle.addEventListener('click', () => {
-        nav.classList.toggle('active');
-        
-        // Toggle menu icon
-        const icon = mobileMenuToggle.querySelector('i');
-        if (nav.classList.contains('active')) {
-          icon.classList.remove('fa-bars');
-          icon.classList.add('fa-times');
-        } else {
-          icon.classList.remove('fa-times');
-          icon.classList.add('fa-bars');
-        }
+        mobileMenu.classList.toggle('hidden');
+        const isExpanded = !mobileMenu.classList.contains('hidden');
+        mobileMenuToggle.setAttribute('aria-expanded', isExpanded);
+      });
+      
+      // Close menu when clicking a link
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          mobileMenuToggle.setAttribute('aria-expanded', false);
+        });
       });
       
       // Close menu when clicking outside
       document.addEventListener('click', (e) => {
-        if (!nav.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
-          nav.classList.remove('active');
-          const icon = mobileMenuToggle.querySelector('i');
-          icon.classList.remove('fa-times');
-          icon.classList.add('fa-bars');
+        if (!mobileMenu.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+          mobileMenu.classList.add('hidden');
+          mobileMenuToggle.setAttribute('aria-expanded', false);
         }
       });
     }
