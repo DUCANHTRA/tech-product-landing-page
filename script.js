@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // FAQ toggle functionality
   function initializeFAQ() {
-    const faqButtons = document.querySelectorAll('[onclick="toggleFAQ(this)"]');
+    const faqButtons = document.querySelectorAll('.faq-button');
     
     faqButtons.forEach(button => {
       button.addEventListener('click', (e) => {
