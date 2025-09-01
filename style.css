@@ -535,6 +535,15 @@
 html:not(.dark) li.text-white {
   color: #ffffff !important;
 }
+
+/* Ensure white text works for ul elements in light mode */
+html:not(.dark) ul.text-white {
+  color: #ffffff !important;
+}
+
+html:not(.dark) ul.text-white li {
+  color: #ffffff !important;
+}
   
   html:not(.dark) span {
     color: inherit !important;
